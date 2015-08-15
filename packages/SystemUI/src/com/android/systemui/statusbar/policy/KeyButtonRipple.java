@@ -71,18 +71,15 @@ public class KeyButtonRipple extends Drawable {
     public KeyButtonRipple(Context ctx, View targetView) {
         mMaxWidth =  ctx.getResources().getDimensionPixelSize(R.dimen.key_button_ripple_max_width);
         mTargetView = targetView;
-    }
-
-    public void setColor(int color) {
-        mRippleColor = color;
+        mRippleColor = ctx.getResources().getColor(R.color.navbutton_ripple_color);
     }
 
     private Paint getRipplePaint() {
         if (mRipplePaint == null) {
             mRipplePaint = new Paint();
             mRipplePaint.setAntiAlias(true);
+            mRipplePaint.setColor(mRippleColor);
         }
-        mRipplePaint.setColor(mRippleColor);
         return mRipplePaint;
     }
 
